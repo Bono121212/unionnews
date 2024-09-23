@@ -1,0 +1,47 @@
+.table-display {
+    &.design-01 {
+        table {
+            width: 100%;
+            border-top: .1rem solid color(grey, 400);
+            thead {
+                background-color: color(grey, 050);
+                border-bottom: .1rem solid color(grey, 200);
+                tr {
+                    th {
+                        padding: 1.7rem 2rem;
+                        color: color(grey, 500);
+                        @include font(small-4x, regular);
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    th {
+                        color: color(grey, 900);
+                        min-height: 5.2rem;
+                        padding-top: 1.3rem;
+                        padding-left: 2rem;
+                        vertical-align: top;
+                        border-bottom: .1rem solid color(grey, 100);
+                        @include font(small-3x, medium);
+                    }
+                    td {
+                        padding: 1.3rem 0;
+                        color: color(grey, 600);
+                        border-bottom: .1rem solid color(grey, 100);
+                        @include font(small-4x, regular);
+                    }
+                }
+            }
+        }
+    }
+    .align-01 {
+        text-align: left;
+    }
+    .align-02 {
+        text-align: right;
+    }
+    .align-03 {
+        text-align: center;
+    }
+}

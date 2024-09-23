@@ -2,16 +2,15 @@
 @mixin blind {
     display: block;
     position: absolute;
-    overflow: hidden;
-    visibility: hidden;
-    margin: -1px;
-    padding: 0;
     width: 1px;
     height: 1px;
-    line-height: 1px;
-    font-size: 1px;
+    padding: 0;
+    margin: -1px;
     border: 0;
-    clip: rect(0 0 0 0);
+    font-size: 1px;
+    line-height: 1px;
+    overflow: hidden;
+    visibility: hidden;
     clip: rect(0, 0, 0, 0);
     pointer-events: none;
 }
@@ -19,14 +18,14 @@
 // ellipsis
 @mixin ellipsis($line: 1) {
     @if $line ==1 {
+        white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
-        white-space: nowrap;
     }
 
     @else {
-        text-overflow: ellipsis;
         display: -webkit-box;
+        text-overflow: ellipsis;
         overflow: hidden;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: $line;
