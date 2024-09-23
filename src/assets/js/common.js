@@ -7,6 +7,7 @@ frontCommon.Html = (function () {
             frontCommonResize();
             header();
             quickMenuUI();
+            dropdown();
             },
         };
     return instance;
@@ -153,4 +154,14 @@ function quickMenuUI() {
             }
         }
     }
+}
+
+function dropdown() {
+    $('.dropdown').click(function () {
+        $(this).next().slideToggle();
+        $(this).parent().toggleClass('open');
+        if($(this).parent().hasClass('active')) {
+            $(this).toggleClass('open');
+        }
+    });
 }

@@ -1,16 +1,16 @@
 #lnb {
-    min-width: 30rem;
-    padding-top: 12rem;
     position: sticky;
     top: 0;
+    min-width: 30rem;
+    padding-top: 12rem;
     align-self: flex-start;
     &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
         content: '';
         border-right: 1px solid color(gray,200);
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
         min-height: 100vh;
     }
     .depth2-wrap {
@@ -29,10 +29,37 @@
                 .depth2-item {
                     .depth2 {
                         display: block;
+                        position: relative;
                         padding: 1rem 1.5rem;
-                        border-radius: 0.2rem;
                         color: color(gray,400);
+                        justify-content: space-between;
+                        align-items: center;
+                        border-radius: 0.2rem;
                         @include font(small-3x,regular);
+                        &.dropdown {
+                            &::before {
+                                display: inline-block;
+                                position: absolute;
+                                right: 2rem;
+                                width: 2.4rem;
+                                height: 2.4rem;
+                                background: icon(line, color(grey,400)) no-repeat center center;
+                                content: '';
+                                flex-shrink: 0;
+                                transform: rotate(90deg);
+                                transition: .3s cubic-bezier(0.65, 0, 0.35, 1);
+                            }
+                            &::after {
+                                display: inline-block;
+                                position: absolute;
+                                right: 2rem;
+                                width: 2.4rem;
+                                height: 2.4rem;
+                                background: icon(line, color(grey,400)) no-repeat center center;
+                                content: '';
+                                flex-shrink: 0;
+                            }
+                        }
                     }
                     &.active {
                         .depth2:not(.dropdown) {
@@ -44,21 +71,35 @@
                             color: color(gray,900);
                             @include font(small-3x,medium);
                         }
+                        .depth3-wrap {
+                            display: block;
+                        }
+                    }
+                    &.open {
+                        .depth2 {
+                            &.dropdown {
+                                &::before {
+                                    transform: translateY(1rem) rotate(90deg);
+                                    opacity: 0;
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
     .depth3-wrap {
+        display: none;
         position: relative;
         margin-left: 2.8rem;
         &::before {
+            position: absolute;
+            top: 50%;
+            left: -0.6rem;
+            height: calc(100% - 3.6rem);
             content: '';
             border-left: 1px solid color(gray,200);
-            height: calc(100% - 3.6rem);
-            position: absolute;
-            left: -0.6rem;
-            top: 50%;
             transform: translateY(-50%);
         }
         .depth3-item {
@@ -66,33 +107,33 @@
                 display: block;
                 position: relative;
                 padding: 0.6rem 1rem;
-                border-radius: 0.2rem;
                 color: color(gray,400);
+                border-radius: 0.2rem;
                 @include font(small-4x,regular);
             }
             &.active {
                 .depth3 {
                     display: flex;
+                    color: color(primary,100);
                     align-items: center;
                     background-color: color(bg,blue);
-                    color: color(primary,100);
                     @include font(small-4x,medium);
                     &:after {
-                        content:'';
                         display: inline-block;
                         width: 1.6rem;
                         height: 1.6rem;
+                        content:'';
                         background-image: icon(arrow-right, color(primary,100));
                         background-repeat: no-repeat;
                         background-size: 0.7rem 1.1rem;
                         background-position: center;
                     }
                     &:before {
-                        content:'';
                         position: absolute;
                         left: -0.75rem;
                         width: 0.4rem;
                         height: 0.4rem;
+                        content:'';
                         border-radius: 100%;
                         background-color: color(primary,100);
                     }
