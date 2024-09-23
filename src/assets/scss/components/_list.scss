@@ -15,9 +15,6 @@
                     margin-top: 2rem;
                 }
             }
-            .data-body {
-    
-            }
             + .data-item {
                 margin-top: 6rem;
             }
@@ -39,6 +36,34 @@
             }
             + .data-item {
                 margin-top: 2.7rem;
+            }
+        }
+    }
+    &.design-03 {
+        .data-item {
+            .data-head {
+                .subject {
+                    color: color(gray,900);
+                    @include font(small-2x,bold)
+                }
+                + .data-body {
+                    margin-top: 0.8rem;
+                }
+            }
+            .data-body {
+                .para {
+                    color: color(gray,500);
+                    @include font(small-4x);
+                    + .table-display {
+                        margin-top: 2rem;
+                    }
+                }
+                + .data-figure {
+                    margin-top: 2rem;
+                }
+            }
+            + .data-item {
+                margin-top: 6rem;
             }
         }
     }

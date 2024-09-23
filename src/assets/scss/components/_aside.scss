@@ -45,13 +45,13 @@
             }
             &.active {
                 &.term {
-                    &.type1 {
+                    &.type-01 {
                         .link {
                             color: color(primary,100);
                             background-color: color(bg,blue);
                         }
                     }
-                    &.type2 {
+                    &.type-02 {
                         .link {
                             color: color(gray,900);
                         }
