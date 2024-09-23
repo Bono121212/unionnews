@@ -47,8 +47,6 @@
                         position: relative;
                         padding: 1rem 1.5rem;
                         color: color(gray,400);
-                        justify-content: space-between;
-                        align-items: center;
                         border-radius: 0.2rem;
                         @include font(small-3x,regular);
                         &.dropdown {
@@ -73,6 +71,7 @@
                                 background: icon(line, color(grey,400)) no-repeat center center;
                                 content: '';
                                 flex-shrink: 0;
+                                transition: .3s cubic-bezier(0.65, 0, 0.35, 1);
                             }
                         }
                     }
@@ -96,6 +95,10 @@
                                 &::before {
                                     transform: translateY(-1rem) rotateY(0deg);
                                     opacity: 0;
+                                    background: icon(line, color(grey,900)) no-repeat center center;
+                                }
+                                &::after {
+                                    background: icon(line, color(grey,900)) no-repeat center center;
                                 }
                             }
                         }
