@@ -4,14 +4,29 @@
     min-width: 30rem;
     padding-top: 12rem;
     align-self: flex-start;
-    &::after {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        content: '';
-        border-right: 1px solid color(gray,200);
-        min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 998;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .lnb-inner {
+        position: relative;
+        padding-bottom: 12rem;
+        &::after {
+            position: absolute;
+            top: -12rem;
+            right: 0px;
+            height: calc(100% + 12rem);
+            content: "";
+            border-right: 1px solid rgb(233, 233, 233);
+            min-height: 100vh;
+        }
     }
     .depth2-wrap {
         .depth2-head {

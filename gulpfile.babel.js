@@ -15,7 +15,6 @@ const del = require("del");
 
 const SRC_FOLDER = "./src";
 const DIST_FOLDER = "./dist";
-const isProduction = process.env.NODE_ENV === 'production';
 
 const SRC_PATH = {
     ASSETS: {
@@ -61,11 +60,13 @@ gulp.task("html", () => {
 gulp.task("ejs", function () {
   return gulp
     .src([SRC_PATH.EJS + "/**/!(_)*.ejs", SRC_PATH.EJS + "/*.ejs"])
-    .pipe(ejs({ DOCUMENT_ROOT: "/" }))  // 여기서 변수 전달
+    .pipe(ejs({
+      DOCUMENT_ROOT: '/'  // 로컬 환경에서는 기본적으로 / 사용
+    }))
     .pipe(rename({ extname: ".html" }))
     .pipe(
       fileinclude({
-        prefix: "@@", //사용할땐 앞에@@ 를 붙이면됨
+        prefix: "@@", // 사용할 때 @@ 붙이면 됨
         basepath: "@file",
       })
     )
@@ -74,25 +75,31 @@ gulp.task("ejs", function () {
     .pipe(browserSync.stream());
 });
 
-// gulp.task("ejs", function () {
-//   return gulp
-//     .src([SRC_PATH.EJS + "/**/!(_)*.ejs", SRC_PATH.EJS + "/*.ejs"])
-//     .pipe(ejs({ 
-//       DOCUMENT_ROOT: isProduction ? '' : '/'  // 배포 환경에서는 상대경로 사용
-//     })) 
-//     .pipe(rename({ extname: ".html" }))
-//     .pipe(htmlbeautify({ indentSize: 2 }))
-//     .pipe(gulp.dest(DEST_PATH.EJS))
-//     .pipe(browserSync.stream());
-// });
+gulp.task("ejs-prod", function () {
+  return gulp
+    .src([SRC_PATH.EJS + "/**/!(_)*.ejs", SRC_PATH.EJS + "/*.ejs"])
+    .pipe(ejs({
+      DOCUMENT_ROOT: '/unionnews/'  // 배포 환경에서는 /unionnews/ 사용
+    }))
+    .pipe(rename({ extname: ".html" }))
+    .pipe(
+      fileinclude({
+        prefix: "@@", // 사용할 때 @@ 붙이면 됨
+        basepath: "@file",
+      })
+    )
+    .pipe(htmlbeautify({ indentSize: 2 }))
+    .pipe(gulp.dest(DIST_FOLDER))
+    .pipe(browserSync.stream());
+});
 
 gulp.task("scss:compile", function () {
   return gulp
     .src(SRC_PATH.ASSETS.SCSS + "/*.scss")
     .pipe(sourcemaps.init())
     .pipe(scss(OPTIONS).on('error', scss.logError))
-    .pipe(autoprefixer()) // 최신 css를 구형 브라우저에서 이해할 수 있게 prefix를 만들어줌
-    .pipe(sourcemaps.write('.')) // 소스 맵을 CSS 파일과 같은 디렉토리에 별도 파일로 저장
+    .pipe(autoprefixer())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(DEST_PATH.ASSETS.CSS))
     .pipe(browserSync.stream());
 });
@@ -103,7 +110,7 @@ gulp.task("js", () => {
       SRC_PATH.ASSETS.JS + "/**/*.js",
     ])
     .pipe(babel())
-    .pipe(uglify()) //자바스크립트 코드를 압축해 용량을 줄임
+    .pipe(uglify())
     .pipe(gulp.dest(DEST_PATH.ASSETS.JS))
     .pipe(browserSync.stream());
 });
@@ -161,27 +168,22 @@ function clean() {
     return del([DIST_FOLDER]);
 }
 
-// 'gh' 작업 정의
 gulp.task('gh', function () {
     return gulp.src(DIST_FOLDER + '/**/*')
     .pipe(ghPages());
 });
 
-// 'cleanDeploy' 작업 정의
 gulp.task('cleanDeploy', function () {
     return del([".publish"]);
 });
 
-// Prepare task
 const prepare = gulp.series(clean);
 
-// Build task
 const build = gulp.series(
     prepare,
     gulp.parallel("html", "ejs", "scss:compile", "js", "images", "svg", "fonts", "movies")
 );
 
-// Watch task
 function watchFiles() {
     gulp.watch(SRC_PATH.EJS + "/**/*.ejs", gulp.series("ejs"));
     gulp.watch(SRC_PATH.ASSETS.SCSS + "/**/*.scss", gulp.series("scss:compile"));
@@ -192,21 +194,12 @@ function watchFiles() {
     gulp.watch(SRC_PATH.ASSETS.MOVIES + "/*", gulp.series("movies"));
 }
 
-// gulp.task("build", gulp.series("html", "ejs", "scss:compile", "js", "images", "svg", "fonts", "movies", gulp.parallel("browserSync", "watch")));
-
-// gulp.task("default", gulp.series("clean", "build", gulp.parallel("browserSync", "watch")));
-
-
-// Default task
 const defaultTask = gulp.series(clean, build, gulp.parallel("browserSync", watchFiles));
 
-// Dev task
 const dev = gulp.series(build, gulp.parallel("browserSync", watchFiles));
 
-// Deploy task
-const deploy = gulp.series('gh', 'cleanDeploy');
+const deploy = gulp.series('ejs-prod', 'gh', 'cleanDeploy');
 
-// Export tasks using CommonJS
 module.exports = {
   clean,
   prepare,

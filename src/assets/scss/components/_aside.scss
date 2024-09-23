@@ -15,13 +15,14 @@
             }
             &.term {
                 .link {
-                    padding: 0.6rem 1rem 0.6rem 0;
+                    padding: 0.6rem 1rem;
                     color: color(gray,400);
                     @include font(small-6x,medium)
                 }
             }
             &.desc {
                 position: relative;
+                margin-left: 1rem;
                 .link {
                     padding: 0.4rem 0.8rem;
                     margin: 0 0.7rem;
@@ -44,9 +45,18 @@
             }
             &.active {
                 &.term {
-                    .link {
-                        color: color(gray,900);
+                    &.type1 {
+                        .link {
+                            color: color(primary,100);
+                            background-color: color(bg,blue);
+                        }
                     }
+                    &.type2 {
+                        .link {
+                            color: color(gray,900);
+                        }
+                    }
+                    
                 }
                 
                 &.desc {

@@ -1,14 +1,14 @@
-<!-- page-aside : 페이지별 앵커 영역 마크업 추가 예정 -->
+<!-- page-aside : 페이지별 앵커 영역 마크업 추가 예정 | 소타이틀이 없는 경우 term type1, 소타이틀이 있는 경우 term type2 -->
 <% if (name === 'colors') { %>
 <div class="quick-nav">
     <ul class="nav-list">
-        <li class="nav-item term"><a href="javascript:void(0)" class="link" data-link="principle">Principle</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link" data-link="lightAndDarkMode">Light and Dark mode</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link" data-link="basicColor">Basic Color</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link" data-link="principle">Principle</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link" data-link="lightAndDarkMode">Light and Dark mode</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link" data-link="basicColor">Basic Color</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link" data-link="mainColor">Main Color</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link" data-link="subColor">Sub Color</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link" data-link="greyscale">Greyscale</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link" data-link="semanticColor">Semantic Color</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link" data-link="semanticColor">Semantic Color</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link" data-link="background">Background</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link" data-link="popupBox">Popup box</a></li>
     </ul>
@@ -16,17 +16,17 @@
 <% } else if (name === 'typography') { %>
 <div class="quick-nav">
     <ul class="nav-list">
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Typeface</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Components</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Typeface</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Components</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Heading</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Title</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Body</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Detail</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Label</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Link</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Font sizes</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Font weight</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Line height</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Font sizes</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Font weight</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Line height</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Heading and detail</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Body and code</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Component</a></li>
@@ -35,22 +35,22 @@
 <% } else if (name === 'layout') { %>
 <div class="quick-nav">
     <ul class="nav-list">
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Responsive layout grid</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Responsive layout grid</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Break point</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Contents area</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Spacing</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Spacing</a></li>
     </ul>
 </div>
 <% } else if (name === 'object-styles') { %>
 <div class="quick-nav">
     <ul class="nav-list">
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Radius</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Radius</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Small rounding</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Default rounding</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">ETC rounding</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Full rounding</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Border width</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Shadow</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Border width</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Shadow</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Default shadow</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">On Light Gray</a></li>
     </ul>
@@ -58,8 +58,8 @@
 <% } else if (name === 'principles') { %>
 <div class="quick-nav">
     <ul class="nav-list">
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">디자인 원칙</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">원칙을 따르기 위한 주요 방안</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">디자인 원칙</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">원칙을 따르기 위한 주요 방안</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Responsive</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Accessibility</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Visual Hierarchy</a></li>
@@ -69,8 +69,8 @@
 <% } else if (name === 'content-design') { %>
 <div class="quick-nav">
     <ul class="nav-list">
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">콘텐츠 디자인이란?</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">모범 사례</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">콘텐츠 디자인이란?</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">모범 사례</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">대체 텍스트는 짧게</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">차트와 그래프는 요약해서 작성</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">평범한 언어를 사용</a></li>
@@ -113,8 +113,8 @@
 <% } else if (name === 'box-button') { %>
 <div class="quick-nav">
     <ul class="nav-list">
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Anatomy</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Options</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Anatomy</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Options</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Label and icon</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">variant</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Primary variant</a></li>
@@ -124,51 +124,51 @@
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Loading</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Icon</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">On/Off states</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Size</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Behaviors</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Size</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Behaviors</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Focus</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Flexible width</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Overflow</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Usage</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Usage</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Guideline</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">High-contrast mode</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Fixing the bottom</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Code</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Code</a></li>
     </ul>
 </div>
 <% } else if (name === 'text-button') { %>
 <div class="quick-nav">
     <ul class="nav-list">
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Anatomy</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Options</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Anatomy</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Options</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Text Only</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Text + Icon</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Underlined</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Usage guidelines</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Usage guidelines</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">화면 판독기 지원</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">문장 내 사용</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">직관적인 경험</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Code</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Code</a></li>
     </ul>
 </div>
 <% } else if (name === 'tab-button') { %>
 <div class="quick-nav">
     <ul class="nav-list">
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Anatomy</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Options</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Anatomy</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Options</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Label</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Stage</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">States</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Pading</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">Margin</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Element Type</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Element Type</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">항목 수</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">측면 여백</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Usage</a></li>
+        <li class="nav-item term type2"><a href="javascript:void(0)" class="link">Usage</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">표시될 콘텐츠가 없는 경우</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">여러 개의 탭을 중첩하는 경우</a></li>
         <li class="nav-item desc"><a href="javascript:void(0)" class="link">탭의 항목 수가 많을 경우</a></li>
-        <li class="nav-item term"><a href="javascript:void(0)" class="link">Code</a></li>
+        <li class="nav-item term type1"><a href="javascript:void(0)" class="link">Code</a></li>
     </ul>
 </div>
 <% } else if (name === 'icon-button') { %>
