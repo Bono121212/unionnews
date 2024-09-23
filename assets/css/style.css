@@ -135,7 +135,6 @@
 #footer {
     width: 100%;
     height: 10rem;
-    z-index: 999;
     position: absolute;
     bottom: 0;
 }
@@ -163,19 +162,31 @@
 }
 
 #lnb {
-    min-width: 30rem;
-    padding-top: 12rem;
     position: sticky;
     top: 0;
+    min-width: 30rem;
+    padding-top: 12rem;
     align-self: flex-start;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 998;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-#lnb::after {
+#lnb::-webkit-scrollbar {
+    display: none;
+}
+#lnb .lnb-inner {
+    position: relative;
+    padding-bottom: 10rem;
+}
+#lnb .lnb-inner::after {
+    position: absolute;
+    top: -12rem;
+    right: 0px;
+    height: calc(100% + 12rem);
     content: "";
     border-right: 1px solid rgb(233, 233, 233);
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
     min-height: 100vh;
 }
 #lnb .depth2-wrap .depth2-head .depth2-subject {
@@ -190,11 +201,36 @@
 }
 #lnb .depth2-wrap .depth2-body .depth2-list .depth2-item .depth2 {
     display: block;
+    position: relative;
     padding: 1rem 1.5rem;
-    border-radius: 0.2rem;
     color: rgb(136, 136, 136);
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.2rem;
     font-weight: 400;
     font-size: 1.8rem;
+}
+#lnb .depth2-wrap .depth2-body .depth2-list .depth2-item .depth2.dropdown::before {
+    display: inline-block;
+    position: absolute;
+    right: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url("data:image/svg+xml,%0A%3Csvg width='14' height='2' viewBox='0 0 14 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14 1.75H0V0.25H14V1.75Z' fill='rgb(136,136,136)'/%3E%3C/svg%3E%0A") no-repeat center center;
+    content: "";
+    flex-shrink: 0;
+    transform: rotate(90deg);
+    transition: 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+#lnb .depth2-wrap .depth2-body .depth2-list .depth2-item .depth2.dropdown::after {
+    display: inline-block;
+    position: absolute;
+    right: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url("data:image/svg+xml,%0A%3Csvg width='14' height='2' viewBox='0 0 14 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14 1.75H0V0.25H14V1.75Z' fill='rgb(136,136,136)'/%3E%3C/svg%3E%0A") no-repeat center center;
+    content: "";
+    flex-shrink: 0;
 }
 #lnb .depth2-wrap .depth2-body .depth2-list .depth2-item.active .depth2:not(.dropdown) {
     background: rgb(246, 248, 252);
@@ -207,52 +243,60 @@
     font-weight: 500;
     font-size: 1.8rem;
 }
+#lnb .depth2-wrap .depth2-body .depth2-list .depth2-item.active .depth3-wrap {
+    display: block;
+}
+#lnb .depth2-wrap .depth2-body .depth2-list .depth2-item.open .depth2.dropdown::before {
+    transform: translateY(-1rem) rotateY(0deg);
+    opacity: 0;
+}
 #lnb .depth3-wrap {
+    display: none;
     position: relative;
     margin-left: 2.8rem;
 }
 #lnb .depth3-wrap::before {
+    position: absolute;
+    top: 50%;
+    left: -0.6rem;
+    height: calc(100% - 3.6rem);
     content: "";
     border-left: 1px solid rgb(233, 233, 233);
-    height: calc(100% - 3.6rem);
-    position: absolute;
-    left: -0.6rem;
-    top: 50%;
     transform: translateY(-50%);
 }
 #lnb .depth3-wrap .depth3-item .depth3 {
     display: block;
     position: relative;
     padding: 0.6rem 1rem;
-    border-radius: 0.2rem;
     color: rgb(136, 136, 136);
+    border-radius: 0.2rem;
     font-weight: 400;
     font-size: 1.6rem;
 }
 #lnb .depth3-wrap .depth3-item.active .depth3 {
     display: flex;
+    color: rgb(79, 111, 203);
     align-items: center;
     background-color: rgb(246, 248, 252);
-    color: rgb(79, 111, 203);
     font-weight: 500;
     font-size: 1.6rem;
 }
 #lnb .depth3-wrap .depth3-item.active .depth3:after {
-    content: "";
     display: inline-block;
     width: 1.6rem;
     height: 1.6rem;
+    content: "";
     background-image: url("data:image/svg+xml,%0A%3Csvg width='7' height='11' viewBox='0 0 7 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.43842 5.49908L0.96875 2.02941L2.02941 0.96875L6.55974 5.49908L2.02941 10.0294L0.96875 8.96875L4.43842 5.49908Z' fill='rgb(79,111,203)'/%3E%3C/svg%3E%0A");
     background-repeat: no-repeat;
     background-size: 0.7rem 1.1rem;
     background-position: center;
 }
 #lnb .depth3-wrap .depth3-item.active .depth3:before {
-    content: "";
     position: absolute;
     left: -0.75rem;
     width: 0.4rem;
     height: 0.4rem;
+    content: "";
     border-radius: 100%;
     background-color: rgb(79, 111, 203);
 }
@@ -272,13 +316,14 @@
     transition: 0.3s ease;
 }
 .quick-nav .nav-list .nav-item.term .link {
-    padding: 0.6rem 1rem 0.6rem 0;
+    padding: 0.6rem 1rem;
     color: rgb(136, 136, 136);
     font-weight: 500;
     font-size: 1.4rem;
 }
 .quick-nav .nav-list .nav-item.desc {
     position: relative;
+    margin-left: 1rem;
 }
 .quick-nav .nav-list .nav-item.desc .link {
     padding: 0.4rem 0.8rem;
@@ -300,7 +345,11 @@
 .quick-nav .nav-list .nav-item.desc + .term {
     margin-top: 0.8rem;
 }
-.quick-nav .nav-list .nav-item.active.term .link {
+.quick-nav .nav-list .nav-item.active.term.type1 .link {
+    color: rgb(79, 111, 203);
+    background-color: rgb(246, 248, 252);
+}
+.quick-nav .nav-list .nav-item.active.term.type2 .link {
     color: rgb(17, 17, 17);
 }
 .quick-nav .nav-list .nav-item.active.desc .link {
