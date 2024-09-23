@@ -79,7 +79,7 @@
                         .depth2 {
                             &.dropdown {
                                 &::before {
-                                    transform: translateY(1rem) rotate(90deg);
+                                    transform: translateY(-1rem) rotateY(0deg);
                                     opacity: 0;
                                 }
                             }
