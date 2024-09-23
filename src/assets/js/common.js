@@ -6,6 +6,7 @@ frontCommon.Html = (function () {
         reset: function () {
             frontCommonResize();
             header();
+            quickMenuUI();
             },
         };
     return instance;
@@ -58,6 +59,103 @@ function header() {
         lastScrollTop = scrollTop; //현재 스크롤위치를 마지막 스크롤값에 저장
     }
 }
+
+function quickMenuUI() {
+    var el = $('.quick-nav');
+    var quickMenu = $('.nav-list');
+
+    if (el.length <= 0) {
+        return;
+    }
+
+    var ignoreScroll = false;
+
+    // 페이지 로드 시 가장 첫 번째 섹션에 active 클래스 부여
+    var firstSection = $('[data-link-cont]').first();  // 첫 번째 data-link-cont 속성 요소 찾기
+    var firstDataLink = firstSection.attr('data-link-cont');
+    if (firstDataLink) {
+        // 해당하는 네비게이션 아이템에 active 클래스 부여
+        quickMenu.find('.item a[data-link="' + firstDataLink + '"]').addClass('active');
+        el.find('.nav-list .nav-item').removeClass('active');
+        el.find('.nav-list .nav-item a[data-link="' + firstDataLink + '"]').closest('.nav-item').addClass('active');
+        activateClosestTerm(el.find('.nav-list .nav-item a[data-link="' + firstDataLink + '"]').closest('.nav-item'));
+    }
+
+    // 스크롤 이벤트
+    $(window).off('scroll.scrollQuick').on('scroll.scrollQuick', function() {
+        var sct = $(this).scrollTop();
+
+        if (ignoreScroll) {
+            return;
+        }
+
+        // 스크롤 위치에 따라 각 섹션 활성화
+        el.find('.nav-list .nav-item').each(function(idx, obj) {
+            var dataLink = $(obj).find('a').attr('data-link');
+            var targetSection = $('[data-link-cont="' + dataLink + '"]');
+            
+            if (targetSection.length > 0 && sct >= targetSection.offset().top - 30) {
+                el.find('.nav-list .nav-item').removeClass('active');
+                $(obj).addClass('active');
+                activateClosestTerm($(obj));
+            }
+        });
+
+        // 활성화된 nav-item의 data-link 가져오기
+        var boxName = el.find('.nav-list').find('.nav-item.active').find('a').attr('data-link');
+        
+        // 빠른 메뉴 항목 활성화
+        quickMenu.find('.item a').removeClass('active');
+        quickMenu.find('.item a[data-link="' + boxName + '"]').addClass('active');
+    }).trigger('scroll.scrollQuick');
+
+    // 빠른 메뉴 클릭 시 스크롤 이동
+    quickMenu.find('a').on('click', function(e) {
+        e.preventDefault();
+
+        ignoreScroll = true;
+
+        // 클릭된 링크의 data-link 속성 가져오기
+        var dataType = $(this).attr('data-link');
+        var targetSection = $('[data-link-cont="' + dataType + '"]');
+
+        // 해당 섹션이 존재하는지 확인
+        if (targetSection.length > 0) {
+            var posMove = targetSection.offset().top - 30;
+
+            // 빠른 메뉴 활성화
+            quickMenu.find('.item a').removeClass('active');
+            quickMenu.find('.item a[data-link="' + dataType + '"]').addClass('active');
+
+            // 해당 nav-item에 active 클래스 부여
+            el.find('.nav-list .nav-item').removeClass('active');
+            $(this).closest('.nav-item').addClass('active');
+            activateClosestTerm($(this).closest('.nav-item'));
+
+            // 애니메이션을 통해 스크롤 이동
+            $('body, html').stop().animate({
+                scrollTop: posMove
+            }, function() {
+                ignoreScroll = false;
+            });
+        } else {
+            console.error('해당 섹션을 찾을 수 없습니다: ' + dataType);
+        }
+    });
+
+    // 가장 가까운 상단의 .nav-item.term에 active 클래스 부여
+    function activateClosestTerm(currentItem) {
+        if (currentItem.hasClass('desc')) {
+            // 현재 desc 아이템에서 가장 가까운 상위 term 아이템 찾기
+            var closestTerm = currentItem.prevAll('.nav-item.term').first();
+            if (closestTerm.length > 0) {
+                closestTerm.addClass('active');
+            }
+        }
+    }
+}
+
+
 
 /* 아코디언 */
 function Accordion() {

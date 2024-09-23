@@ -3,12 +3,12 @@
     min-width: 1720px;
     min-height: 100vh;
     .main {
-        min-height: calc(100vh - 10rem);
+        // min-height: calc(100vh - 10rem);
+        min-height: 100vh;
         .local-body {
             position: relative;
             display: flex;
             align-items: flex-start;
-            // justify-content: space-between;
             .content {
                 position: relative;
                 .content-inner {
