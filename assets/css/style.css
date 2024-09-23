@@ -178,7 +178,7 @@
 }
 #lnb .lnb-inner {
     position: relative;
-    padding-bottom: 10rem;
+    padding-bottom: 12rem;
 }
 #lnb .lnb-inner::after {
     position: absolute;
