@@ -94,7 +94,7 @@ function quickMenuUI() {
             var dataLink = $(obj).find('a').attr('data-link');
             var targetSection = $('[data-link-cont="' + dataLink + '"]');
             
-            if (targetSection.length > 0 && sct >= targetSection.offset().top - 30) {
+            if (targetSection.length > 0 && sct >= targetSection.offset().top - 400) {
                 el.find('.nav-list .nav-item').removeClass('active');
                 $(obj).addClass('active');
                 activateClosestTerm($(obj));
@@ -121,7 +121,7 @@ function quickMenuUI() {
 
         // 해당 섹션이 존재하는지 확인
         if (targetSection.length > 0) {
-            var posMove = targetSection.offset().top - 30;
+            var posMove = targetSection.offset().top - 200;
 
             // 빠른 메뉴 활성화
             quickMenu.find('.item a').removeClass('active');
