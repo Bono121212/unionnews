@@ -204,8 +204,6 @@
     position: relative;
     padding: 1rem 1.5rem;
     color: rgb(136, 136, 136);
-    justify-content: space-between;
-    align-items: center;
     border-radius: 0.2rem;
     font-weight: 400;
     font-size: 1.8rem;
@@ -345,11 +343,11 @@
 .quick-nav .nav-list .nav-item.desc + .term {
     margin-top: 0.8rem;
 }
-.quick-nav .nav-list .nav-item.active.term.type1 .link {
+.quick-nav .nav-list .nav-item.active.term.type-01 .link {
     color: rgb(79, 111, 203);
     background-color: rgb(246, 248, 252);
 }
-.quick-nav .nav-list .nav-item.active.term.type2 .link {
+.quick-nav .nav-list .nav-item.active.term.type-02 .link {
     color: rgb(17, 17, 17);
 }
 .quick-nav .nav-list .nav-item.active.desc .link {
@@ -386,6 +384,28 @@
 }
 .data-list.design-02 .data-item + .data-item {
     margin-top: 2.7rem;
+}
+.data-list.design-03 .data-item .data-head .subject {
+    color: rgb(17, 17, 17);
+    font-weight: 700;
+    font-size: 2rem;
+}
+.data-list.design-03 .data-item .data-head + .data-body {
+    margin-top: 0.8rem;
+}
+.data-list.design-03 .data-item .data-body .para {
+    color: rgb(102, 102, 102);
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+.data-list.design-03 .data-item .data-body .para + .table-display {
+    margin-top: 2rem;
+}
+.data-list.design-03 .data-item .data-body + .data-figure {
+    margin-top: 2rem;
+}
+.data-list.design-03 .data-item + .data-item {
+    margin-top: 6rem;
 }
 
 .table-display.design-01 table {
