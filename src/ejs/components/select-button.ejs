@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_head.ejs') %>
+</head>
+<body> 
+<div id="wrap">
+    <%-include('../_templates/_header.ejs', { type: 'components' , }) %>
+    <!-- page-body -->
+    <div class="main components button" id="main">
+        <div class="main-inner">
+            <div class="local"> 
+                <div class="local-head">
+                    <div class="local-subject">
+                        <h2 class="local-name blind">Select Button 디자인 가이드</h2>
+                    </div>
+                </div>
+                <div class="local-body">
+                    <%-include('../_templates/_lnb.ejs', { depth1: 'components', depth2: 'button', depth3: 'select-button' }) %>
+                    <div class="content">
+                        <div class="content-inner">
+                            <div class="content-head">
+                                <h3 class="content-name">Select Button</h3>
+                                <p class="content-summary">박스 버튼은 상자 형태의 가장 일반적인 버튼입니다.<br> 화면의 콘텐츠 영역이나 하단 영역에 배치되어 화면에서 중요한 작업을 실행하기 위한 버튼으로 사용됩니다.</p>
+                            </div>
+                            <div class="content-body">
+                                <div class="section">
+                                    <div class="section-wrap">
+                                        <div class="section-head">
+                                            <h4 class="section-subject">Anatomy</h4>
+                                        </div>
+                                        <div class="section-body"> 
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%-include('../_templates/_aside.ejs', { name: 'select-button', }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //page-body -->
+    <%-include('../_templates/_footer.ejs') %>
+</div>
+</body>
+</html>
