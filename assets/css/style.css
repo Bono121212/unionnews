@@ -439,9 +439,12 @@
     margin-top: 0.8rem;
 }
 .post-list.design-01 .post-item .post-wrap .post-info .post-body .para {
-    color: rgb(68, 68, 68);
+    color: rgb(102, 102, 102);
     font-weight: 400;
     font-size: 1.6rem;
+}
+.post-list.design-01 .post-item .post-wrap .post-info .post-body .para + .para {
+    margin-top: 0.8rem;
 }
 
 .table-display.design-01 table {
@@ -548,7 +551,7 @@ body .skip ul li a:focus-within, body .skip ul li a:focus, body .skip ul li a:ac
     font-style: normal;
     box-sizing: border-box;
     word-wrap: break-word;
-    word-break: keep-all;
+    word-break: break-word;
     touch-action: auto;
     -webkit-tap-highlight-color: transparent !important;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
@@ -707,11 +710,15 @@ sub {
     font-weight: 400;
     font-size: 1.8rem;
 }
-#wrap .main .local-body .content .content-body .section .section-head + .section-body {
+#wrap .main .local-body .content .content-body .section .section-head + .section-body,
+#wrap .main .local-body .content .content-body .section .section-head + .section-figure {
     margin-top: 2rem;
 }
 #wrap .main .local-body .content .content-body .section .section-body img + .small {
     margin-top: 1.2rem;
+}
+#wrap .main .local-body .content .content-body .section .section-figure + .section-body {
+    margin-top: 2rem;
 }
 
 /**
