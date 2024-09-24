@@ -22,6 +22,26 @@ body {
         }
     }
 
+    /* Small */
+    .small {
+        &.design-01 {
+            &.style-01 {
+                @include font(small-6x, regular);
+            }
+            &.gray-01 {
+                color: color(gray,500);
+            }
+        }
+    }
+
+    /* Link */
+    .link {
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+        text-decoration: underline;
+    }
+
     .skip {
         ul {
             li {
@@ -40,7 +60,7 @@ body {
                     flex-direction: column;
                     justify-content: center;
                     z-index: 99999;
-    
+
                     &:focus-within,
                     &:focus,
                     &:active {

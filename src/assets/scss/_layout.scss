@@ -50,6 +50,13 @@
                                 margin-top: 2rem;
                             }
                         }
+                        .section-body {
+                            img {
+                                & + .small {
+                                    margin-top: 1.2rem;
+                                }
+                            }
+                        }
                     }
                 }
             }
