@@ -68,3 +68,44 @@
         }
     }
 }
+
+.post-list {
+    &.design-01 {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+
+        .post-item {
+            .post-wrap {
+                display: flex;
+                align-items: center;
+                gap: 5rem;
+
+                .post-figure {
+                    flex-shrink: 0;
+                    width: 56rem;
+                    img {
+                        max-width: 100%;
+                    }
+                }
+                .post-info {
+                    .post-head {
+                        .subject {
+                            color: color(gray, 900);
+                            @include font(small-3x, bold);
+                        }
+                        + .post-body {
+                            margin-top: 0.8rem;
+                        }
+                    }
+                    .post-body {
+                        .para {
+                            color: color(gray, 600);
+                            @include font(small-4x, regular);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
