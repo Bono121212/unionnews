@@ -100,8 +100,11 @@
                     }
                     .post-body {
                         .para {
-                            color: color(gray, 600);
+                            color: color(gray, 500);
                             @include font(small-4x, regular);
+                            + .para {
+                                margin-top: 0.8rem;
+                            }
                         }
                     }
                 }
