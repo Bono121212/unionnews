@@ -9,12 +9,12 @@
     margin-left: auto;
     .nav-list {
         .nav-item {
-            .link {
+            .anchor {
                 display: block;
                 transition: 0.3s ease;
             }
             &.term {
-                .link {
+                .anchor {
                     padding: 0.6rem 1rem;
                     color: color(gray,400);
                     @include font(small-6x,medium)
@@ -23,7 +23,7 @@
             &.desc {
                 position: relative;
                 margin-left: 1rem;
-                .link {
+                .anchor {
                     padding: 0.4rem 0.8rem;
                     margin: 0 0.7rem;
                     border-radius: 0.2rem;
@@ -46,13 +46,13 @@
             &.active {
                 &.term {
                     &.type-01 {
-                        .link {
+                        .anchor {
                             color: color(primary,100);
                             background-color: color(bg,blue);
                         }
                     }
                     &.type-02 {
-                        .link {
+                        .anchor {
                             color: color(gray,900);
                         }
                     }
@@ -60,7 +60,7 @@
                 }
                 
                 &.desc {
-                    .link {
+                    .anchor {
                         color: color(primary,100);
                         background-color: color(bg,blue);
                     }
