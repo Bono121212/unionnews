@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    <meta name="Referrer" content="origin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>연합 뉴스 디자인 시스템</title>
+    <!-- 연합뉴스 link -->
+    <link rel="shortcut icon" type="image/x-icon" href="https://qa-r.yna.co.kr/www/home_n/v02/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://qa-r.yna.co.kr/www/home_n/v02/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://r.yna.co.kr/www/home_n/v02/img/favicon.ico">
+    <link rel="stylesheet preload" as="style" type="text/css" href="https://qa-r.yna.co.kr/global/font/Pretendard/v01/font.css">
+    <!-- <link rel="stylesheet" href="//static.cdp.yna.co.kr/cps/css/default.css"> -->
+    <!-- <link rel="stylesheet" href="//static.cdp.yna.co.kr/cps/css/media.css"> -->
+    <link rel="stylesheet" href="https://static.cdp.yna.co.kr/cps/css/article.css">
+    <link rel="stylesheet" href="https://static.cdp.yna.co.kr/cps/css/common.css">
+    <link rel="stylesheet" href="https://static.cdp.yna.co.kr/cps/css/style.css">
+    <!-- <link rel="stylesheet" href="//static.cdp.yna.co.kr/cps/css/layout.css"> -->
+    <link rel="stylesheet" href="https://static.cdp.yna.co.kr/cps/css/weather_ui03.css">
+    <script src="https://qa-r.yna.co.kr/global/lib/v01/js/underscore-min.js"></script>
+    <script src="https://qa-r.yna.co.kr/global/lib/videojs/video-8.9.0.min.js"></script>
+    <script src="https://qa-r.yna.co.kr/global/lib/v02/js/swiper-8.4.7.min.js"></script>
+    <script src="https://qa-r.yna.co.kr/www/home_n/v03/js/lib/handlebars-4.7.8.min.js"></script>
+    <script src="https://qa-r.yna.co.kr/www/home_n/v03/js/lib/handlebars-helper.js"></script>
+    <script src="https://qa-r.yna.co.kr/www/home_n/v03/js/lib/platform-1.3.6.js"></script>
+    <script src="https://qa-r.yna.co.kr/www/home_n/v03/js/pfrt-cps-front-web-1.0.0.js"></script>
+    <script src="https://qa-r.yna.co.kr/www/home_n/v03/js/pfrt-cps-front-web-external-1.0.0.js"></script>
+    <script async src="https://qa-r.yna.co.kr/www/home_n/v03/js/lib/vanilla-lazyload-19.1.3.min.js"></script>
+    <!-- <script src="https://cdp.yna.co.kr/script/1.0.0/yna_crm_log_module.min.js"></script> -->
+    <!-- 가이드 link -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/bash.min.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/gsap.min.js"></script>
+    <script src="../assets/js/ScrollTrigger.min.js"></script>
+    <script src="../assets/js/ScrollToPlugin.min.js"></script>
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            frontCommon.Html.reset();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="skip">
+            <span class="blind">skip navigation</span>
+            <ul>
+                <li><a href="#naviMenu">메뉴 바로가기</a></li>
+                <li><a href="#main">본문 바로가기</a></li>
+                <li><a href="#footer">하단 정보(링크) 바로가기</a></li>
+            </ul>
+        </div>
+        <!-- page-head -->
+        <div class="header" id="header">
+            <div class="header-inner">
+                <!-- 공통 로고 -->
+                <h1 class="site-logo">
+                    <a href="/unionnews/main/index.html" class="site-name">
+                        <span class="blind">연합뉴스</span>
+                    </a>
+                </h1>
+
+                <!-- 공통 네비게이션 -->
+                <div class="site-navi" id="naviMenu">
+                    <div class="depth1-wrap">
+                        <ul class="depth1-list">
+                            <li class="depth1-item ">
+                                <a href="/unionnews/foundation/colors.html" class="depth1">Foundation</a>
+                            </li>
+                            <li class="depth1-item active">
+                                <a href="/unionnews/components/top-navigation.html" class="depth1">Components</a>
+                            </li>
+                            <li class="depth1-item ">
+                                <a href="/unionnews/guidelines/principles.html" class="depth1">Guidelines</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 공통 유틸 -->
+                <div class="site-util">
+                    <div class="util-list">
+                        <em class="util-item version">
+                            <span class="text">v 0.1</span>
+                        </em>
+                        <!-- <div class="util-item search">
+                    <div class="search-input-wrap">
+                        <input type="text" class="search-input" placeholder="Please enter the keyword" />
+                    </div>
+                </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //page-head -->
+        <!-- page-body -->
+        <div class="main components navigation" id="main">
+            <div class="main-inner">
+                <div class="local">
+                    <div class="local-head">
+                        <div class="local-subject">
+                            <h2 class="local-name blind">Navigation drawer 디자인 가이드</h2>
+                        </div>
+                    </div>
+                    <div class="local-body">
+                        <div class="lnb" id="lnb">
+                            <div class="lnb-inner">
+                                <!-- 타입별 depth2 : 이동 URL 전부 수정할 예정 (현재 javascript:void(0) 되어있는 부분)-->
+
+                                <div class="depth2-wrap components">
+                                    <div class="depth2-head">
+                                        <em class="depth2-subject">Components</em>
+                                    </div>
+                                    <div class="depth2-body">
+                                        <ul class="depth2-list">
+                                            <li class="depth2-item active open"><a href="javascript:void(0)" class="depth2 dropdown">Navigation</a>
+                                                <div class="depth3-wrap">
+                                                    <ul class="depth3-list">
+                                                        <li class="depth3-item "><a href="/unionnews/components/top-navigation.html" class="depth3">Top Navigation</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/button-navigation.html" class="depth3">Button Navigation</a></li>
+                                                        <li class="depth3-item active"><a href="/unionnews/components/navigation-drawer.html" class="depth3">Navigation drawer</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/footer.html" class="depth3">Footer</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth2-item "><a href="javascript:void(0)" class="depth2 dropdown">Button</a>
+                                                <div class="depth3-wrap">
+                                                    <ul class="depth3-list">
+                                                        <li class="depth3-item "><a href="/unionnews/components/box-button.html" class="depth3">Box Button</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/text-button.html" class="depth3">Text Button</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/tab-button.html" class="depth3">Tab Button</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/floating-button.html" class="depth3">Floating Button</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/icon-button.html" class="depth3">Icon Button</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/select-button.html" class="depth3">Select Button</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth2-item "><a href="/unionnews/components/tag.html" class="depth2">Tag</a></li>
+                                            <li class="depth2-item"><a href="javascript:void(0)" class="depth2 dropdown">Input</a>
+                                                <div class="depth3-wrap">
+                                                    <ul class="depth3-list">
+                                                        <li class="depth3-item "><a href="/unionnews/components/text-field.html" class="depth3">Text Field</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/dropdown.html" class="depth3">Dropdown</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/search.html" class="depth3">Search</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth2-item "><a href="/unionnews/components/table.html" class="depth2">Table</a></li>
+                                            <li class="depth2-item "><a href="javascript:void(0)" class="depth2 dropdown">List</a>
+                                                <div class="depth3-wrap">
+                                                    <ul class="depth3-list">
+                                                        <li class="depth3-item "><a href="/unionnews/components/data-list.html" class="depth3">Data List</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/accordion.html" class="depth3">Accordion</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth2-item "><a href="javascript:void(0)" class="depth2 dropdown">Popup</a>
+                                                <div class="depth3-wrap">
+                                                    <ul class="depth3-list">
+                                                        <li class="depth3-item "><a href="/unionnews/components/layer-popup.html" class="depth3">Layer Popup</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/alert-snackbar.html" class="depth3">Alert&Snackbar</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/tooltip.html" class="depth3">Tooltip</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth2-item "><a href="javascript:void(0)" class="depth2 dropdown">UI Elements</a>
+                                                <div class="depth3-wrap">
+                                                    <ul class="depth3-list">
+                                                        <li class="depth3-item "><a href="/unionnews/components/thumbnail.html" class="depth3">Thumbnail</a></li>
+                                                        <li class="depth3-item "><a href="/unionnews/components/loading.html" class="depth3">Loading</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="content-inner">
+                                <div class="content-head">
+                                    <h3 class="content-name">Navigation drawer</h3>
+                                    <p class="content-summary">박스 버튼은 상자 형태의 가장 일반적인 버튼입니다.<br> 화면의 콘텐츠 영역이나 하단 영역에 배치되어 화면에서 중요한 작업을 실행하기 위한 버튼으로 사용됩니다.</p>
+                                </div>
+                                <div class="content-body">
+                                    <div class="section">
+                                        <div class="section-wrap">
+                                            <div class="section-head">
+                                                <div class="section-subject">
+                                                    <h4 class="section-name">Anatomy</h4>
+                                                </div>
+                                            </div>
+                                            <div class="section-body">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- page-aside : 페이지별 앵커 영역 마크업 추가 예정 | 소타이틀이 없는 경우 term type-01, 소타이틀이 있는 경우 term type-02 -->
+
+                        <div class="quick-nav">
+                            <ul class="nav-list">
+                                <li class="nav-item term"><a href="javascript:void(0)" class="link"></a></li>
+                            </ul>
+                        </div>
+
+                        <!-- //page-aside -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //page-body -->
+        <!-- page-foot -->
+        <div class="footer" id="footer">
+            <div class="footer-inner">
+                <div class="footer-head">
+                    <em class="footer-subject">©Pentabreed. StyleGuide Create with</em>
+                </div>
+                <div class="footer-body">
+                    <a href="https://www.pentabreed.com" target="_blank" class="company">
+                        <span class="text blind">펜타브리드</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- //page-foot -->
+    </div>
+</body>
+
+</html>
